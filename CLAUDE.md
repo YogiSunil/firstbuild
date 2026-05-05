@@ -32,7 +32,8 @@ python src/app.py delete 1
 The domain layer and CLI layer are deliberately separated:
 
 - `src/task_manager.py` — pure functions that operate on an in-memory `list[dict]`. No I/O, no file access. Each function receives and mutates (or returns) the task list directly.
-- `src/app.py` — CLI entry point responsible for loading tasks from JSON, calling domain functions, saving back to JSON, and formatting output. Currently a stub.
+- `src/cli.py` — CLI command layer responsible for loading tasks from JSON, calling domain functions, saving back to JSON, and formatting output.
+- `src/app.py` — compatibility entrypoint that delegates to `src.cli.main`.
 
 Task shape: `{"id": int, "description": str, "status": "todo" | "done"}`
 

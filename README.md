@@ -63,13 +63,13 @@ pytest
 
 ### Multi-step single-file task
 
-- Scope: Implemented command parsing and command routing in `src/app.py`.
+- Scope: Implemented command parsing and command routing in `src/cli.py`.
 - Workflow: Added failing CLI tests first (`tests/test_app.py`), then implemented only enough command flow to pass.
 - Validation: Ran full test suite after implementation to ensure no regressions in domain logic.
 
 ### Multi-file design task
 
-- Scope: Added JSON persistence layer in `src/store.py` and integrated persistence behavior in `src/app.py`.
+- Scope: Added JSON persistence layer in `src/store.py` and integrated persistence behavior in `src/cli.py`.
 - Workflow: Added failing persistence tests first (`tests/test_store.py`, `tests/test_app_persistence.py`), then implemented storage API and integration.
 - Design decision: Kept `main(..., tasks=...)` for in-memory test mode while adding `storage_path` for file-backed mode.
 - Validation: Ran full test suite after integration and after refactor checkpoints.
