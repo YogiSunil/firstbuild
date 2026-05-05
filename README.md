@@ -1,6 +1,6 @@
 ## Firstbuild
 
-JavaScript CLI Task Tracker built with a test-first workflow.
+Python CLI Task Tracker built with a test-first workflow.
 
 ## Project Structure
 
@@ -45,7 +45,7 @@ firstbuild/
 
 ## Planned Stack
 
-- Runtime: Node.js 20+
-- Language: JavaScript (CommonJS)
-- Tests: Node test runner (node:test)
+- Runtime: Python 3.11+
+- Language: Python
+- Tests: pytest
 

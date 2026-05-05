@@ -2,7 +2,7 @@
 
 ## Product
 
-Build a JavaScript command-line task tracker with persistent local storage.
+Build a Python command-line task tracker with persistent local storage.
 
 ## Core Features
 
@@ -17,7 +17,7 @@ Build a JavaScript command-line task tracker with persistent local storage.
 
 How to invoke:
 
-node --test
+pytest
 
 Success criteria:
 
@@ -28,8 +28,8 @@ Success criteria:
 
 How to invoke:
 
-node src/index.js add "Write tests"
-node src/index.js list
+python src/app.py add "Write tests"
+python src/app.py list
 
 Success criteria:
 
@@ -40,9 +40,9 @@ Success criteria:
 
 How to invoke:
 
-node src/index.js add "Temporary"
-node src/index.js done 1
-node src/index.js delete 1
+python src/app.py add "Temporary"
+python src/app.py done 1
+python src/app.py delete 1
 
 Success criteria:
 
@@ -55,35 +55,35 @@ Success criteria:
 ### AC-1 Add Task
 
 Given no tasks exist
-When I run `node src/index.js add "Buy milk"`
+When I run `python src/app.py add "Buy milk"`
 Then a task is saved with a unique integer id, description, and `todo` status
 
 ### AC-2 List Tasks
 
 Given tasks already exist
-When I run `node src/index.js list`
+When I run `python src/app.py list`
 Then all tasks are displayed with id, status, and description
 
 ### AC-3 Mark Task Done
 
 Given task id 1 exists with `todo` status
-When I run `node src/index.js done 1`
+When I run `python src/app.py done 1`
 Then task id 1 status changes to `done`
 
 ### AC-4 Delete Task
 
 Given task id 1 exists
-When I run `node src/index.js delete 1`
+When I run `python src/app.py delete 1`
 Then task id 1 is removed from storage
 
 ### AC-5 Invalid Done ID
 
 Given no task exists with id 999
-When I run `node src/index.js done 999`
+When I run `python src/app.py done 999`
 Then the command exits non-zero and prints an error
 
 ### AC-6 Invalid Delete ID
 
 Given no task exists with id 999
-When I run `node src/index.js delete 999`
+When I run `python src/app.py delete 999`
 Then the command exits non-zero and prints an error

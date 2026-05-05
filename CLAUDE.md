@@ -2,20 +2,18 @@
 
 ## Project Context
 
-This repository is a JavaScript CLI task tracker built with a strict test-first workflow.
+This repository is a Python CLI task tracker built with a strict test-first workflow.
 
 ## Tech Stack
 
-- Node.js 20+
-- JavaScript (CommonJS)
-- Built-in test runner (`node --test`)
+- Python 3.11+
+- pytest
 - File storage via JSON in local filesystem
 
 ## Architecture Conventions
 
-- `src/taskManager.js`: domain logic for add/list/complete/delete operations
-- `src/storage.js`: JSON read/write and file path helpers
-- `src/index.js`: CLI argument parsing and command routing
+- `src/task_manager.py`: domain logic for add/list/complete/delete operations
+- `src/app.py`: CLI command routing and output formatting
 - `tests/`: tests grouped by module and feature
 
 ## Workflow Conventions
@@ -27,7 +25,7 @@ This repository is a JavaScript CLI task tracker built with a strict test-first 
 
 ## Testing Expectations
 
-- Run all tests with `node --test`.
+- Run all tests with `pytest`.
 - New behavior must include tests.
 - Invalid inputs must return non-zero exit behavior in CLI tests.
 - Final handoff requires all tests passing.
