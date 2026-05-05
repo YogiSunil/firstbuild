@@ -56,3 +56,19 @@ def test_invalid_commands_return_nonzero(argv, capsys):
     err = capsys.readouterr().err
     assert code == 1
     assert "Usage" in err or "Error" in err
+
+
+def test_done_with_missing_id_returns_nonzero(capsys):
+    code = main(["done", "999"], [])
+
+    err = capsys.readouterr().err
+    assert code == 1
+    assert "Error" in err
+
+
+def test_delete_with_missing_id_returns_nonzero(capsys):
+    code = main(["delete", "999"], [])
+
+    err = capsys.readouterr().err
+    assert code == 1
+    assert "Error" in err
