@@ -1,6 +1,9 @@
 import sys
 from pathlib import Path
 
+if __name__ == "__main__":
+	sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from src.store import load_tasks, save_tasks
 from src.task_manager import add_task, delete_task, list_tasks, mark_done
 
@@ -73,3 +76,7 @@ def main(argv: list[str], tasks: list[dict] | None = None, storage_path: Path | 
 	print(f"Error: unknown command '{command}'", file=sys.stderr)
 	print(_usage(), file=sys.stderr)
 	return 1
+
+
+if __name__ == "__main__":
+	sys.exit(main(sys.argv[1:]))
