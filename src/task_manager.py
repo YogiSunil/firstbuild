@@ -1,4 +1,5 @@
 TODO_STATUS = "todo"
+DONE_STATUS = "done"
 
 
 def _next_id(tasks: list[dict]) -> int:
@@ -34,7 +35,7 @@ def _find_task_by_id(tasks: list[dict], task_id: int) -> dict:
 
 def mark_done(tasks: list[dict], task_id: int) -> None:
 	task = _find_task_by_id(tasks, task_id)
-	task["status"] = "done"
+	task["status"] = DONE_STATUS
 
 
 def delete_task(tasks: list[dict], task_id: int) -> None:
