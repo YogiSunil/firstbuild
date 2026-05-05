@@ -25,9 +25,13 @@ def list_tasks(tasks: list[dict]) -> list[dict]:
 	return tasks
 
 
-def mark_done(tasks: list[dict], task_id: int) -> None:
+def _find_task_by_id(tasks: list[dict], task_id: int) -> dict:
 	for task in tasks:
 		if task["id"] == task_id:
-			task["status"] = "done"
-			return
+			return task
 	raise KeyError(f"Task id {task_id} not found")
+
+
+def mark_done(tasks: list[dict], task_id: int) -> None:
+	task = _find_task_by_id(tasks, task_id)
+	task["status"] = "done"
