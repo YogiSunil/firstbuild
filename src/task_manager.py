@@ -35,3 +35,8 @@ def _find_task_by_id(tasks: list[dict], task_id: int) -> dict:
 def mark_done(tasks: list[dict], task_id: int) -> None:
 	task = _find_task_by_id(tasks, task_id)
 	task["status"] = "done"
+
+
+def delete_task(tasks: list[dict], task_id: int) -> None:
+	task = _find_task_by_id(tasks, task_id)
+	tasks.remove(task)
