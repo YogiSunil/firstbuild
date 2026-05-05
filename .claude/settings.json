@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -m py_compile \"$CLAUDE_TOOL_INPUT_PATH\" 2>&1 && echo \"hook: syntax OK for $CLAUDE_TOOL_INPUT_PATH\" || echo \"hook: syntax error in $CLAUDE_TOOL_INPUT_PATH\""
+          }
+        ]
+      }
+    ]
+  }
+}
