@@ -1,4 +1,6 @@
-from src.task_manager import add_task, list_tasks
+import pytest
+
+from src.task_manager import add_task, list_tasks, mark_done
 
 
 def test_add_task_creates_todo_task_with_id_and_description():
@@ -33,3 +35,20 @@ def test_list_tasks_returns_all_tasks_in_order():
 	result = list_tasks(tasks)
 
 	assert result == tasks
+
+
+def test_mark_done_updates_status_to_done_for_matching_id():
+	tasks = [
+		{"id": 1, "description": "Buy milk", "status": "todo"},
+	]
+
+	mark_done(tasks, 1)
+
+	assert tasks[0]["status"] == "done"
+
+
+def test_mark_done_raises_for_missing_id():
+	tasks = []
+
+	with pytest.raises(KeyError):
+		mark_done(tasks, 999)
