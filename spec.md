@@ -23,6 +23,7 @@ Success criteria:
 
 - Command exits with status code 0.
 - No failing tests are reported.
+- Test summary reports all tests passed.
 
 ### QG-2 Add and List Gate
 
@@ -35,6 +36,7 @@ Success criteria:
 
 - `add` exits 0 and prints created task id.
 - `list` exits 0 and output includes the added task text.
+- Added task appears with status `todo`.
 
 ### QG-3 Complete and Delete Gate
 
@@ -49,6 +51,7 @@ Success criteria:
 - `done 1` exits 0 and updates task status to done.
 - `delete 1` exits 0 and removes the task.
 - `done 999` and `delete 999` exit non-zero with clear error text.
+- After delete, list output no longer shows deleted task id.
 
 ## Acceptance Criteria
 

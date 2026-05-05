@@ -23,6 +23,14 @@ This repository is a Python CLI task tracker built with a strict test-first work
 - Do not add features that are outside `spec.md`.
 - Keep functions small and behavior explicit.
 
+## Commit Protocol
+
+- For each feature, create three commits in order:
+	1. failing tests
+	2. implementation to green
+	3. refactor while tests stay green
+- Do not combine failing tests and implementation in the same commit.
+
 ## Testing Expectations
 
 - Run all tests with `pytest`.

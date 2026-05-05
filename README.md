@@ -49,3 +49,13 @@ firstbuild/
 - Language: Python
 - Tests: pytest
 
+## Local Setup
+
+python -m venv .venv
+.venv\Scripts\activate
+pip install pytest
+
+## Test Command
+
+pytest
+
