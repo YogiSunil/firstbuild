@@ -1,6 +1,6 @@
 import pytest
 
-from src.task_manager import add_task, list_tasks, mark_done
+from src.task_manager import add_task, list_tasks, mark_done, delete_task
 
 
 def test_add_task_creates_todo_task_with_id_and_description():
@@ -52,3 +52,23 @@ def test_mark_done_raises_for_missing_id():
 
 	with pytest.raises(KeyError):
 		mark_done(tasks, 999)
+
+
+def test_delete_task_removes_matching_task_by_id():
+	tasks = [
+		{"id": 1, "description": "Buy milk", "status": "todo"},
+		{"id": 2, "description": "Read docs", "status": "todo"},
+	]
+
+	delete_task(tasks, 1)
+
+	assert tasks == [
+		{"id": 2, "description": "Read docs", "status": "todo"},
+	]
+
+
+def test_delete_task_raises_for_missing_id():
+	tasks = []
+
+	with pytest.raises(KeyError):
+		delete_task(tasks, 999)
