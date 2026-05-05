@@ -1,15 +1,22 @@
+TODO_STATUS = "todo"
+
+
 def _next_id(tasks: list[dict]) -> int:
 	if not tasks:
 		return 1
 	return max(task["id"] for task in tasks) + 1
 
 
-def add_task(tasks: list[dict], description: str) -> dict:
-	task = {
-		"id": _next_id(tasks),
+def _build_task(task_id: int, description: str) -> dict:
+	return {
+		"id": task_id,
 		"description": description,
-		"status": "todo",
+		"status": TODO_STATUS,
 	}
+
+
+def add_task(tasks: list[dict], description: str) -> dict:
+	task = _build_task(_next_id(tasks), description)
 	tasks.append(task)
 	return task
 
