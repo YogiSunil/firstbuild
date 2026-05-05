@@ -23,3 +23,11 @@ def add_task(tasks: list[dict], description: str) -> dict:
 
 def list_tasks(tasks: list[dict]) -> list[dict]:
 	return tasks
+
+
+def mark_done(tasks: list[dict], task_id: int) -> None:
+	for task in tasks:
+		if task["id"] == task_id:
+			task["status"] = "done"
+			return
+	raise KeyError(f"Task id {task_id} not found")
