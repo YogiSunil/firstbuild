@@ -74,3 +74,29 @@ pytest
 - Design decision: Kept `main(..., tasks=...)` for in-memory test mode while adding `storage_path` for file-backed mode.
 - Validation: Ran full test suite after integration and after refactor checkpoints.
 
+## Quiz Evidence
+
+- Course: Claude Code in Action
+- Quiz: Claude Code final quiz
+- Result: 8/8 correct (100%)
+- Elapsed time: 3 minutes
+
+Screenshot evidence can be stored at:
+
+- `assist/claude-code-quiz-pass.png`
+
+![Claude Code Quiz Pass](assist/claude-code-quiz-pass.png)
+
+## Certificate Evidence
+
+- Course completion certificate: Claude Code in Action
+- Learner: Sunil Nath
+- Issued: May 5, 2026
+- Certificate verification link: https://verify.skilljar.com/c/jgyh9di97pvs
+
+Certificate image can be stored at:
+
+- `assist/claude-code-certificate.png`
+
+![Claude Code Certificate](assist/claude-code-certificate.png)
+
