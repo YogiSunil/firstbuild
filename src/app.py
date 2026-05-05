@@ -8,6 +8,10 @@ from src.task_manager import add_task, delete_task, list_tasks, mark_done
 def _usage() -> str:
 	return "Usage: app.py [add <description> | list | done <id> | delete <id>]"
 
+def _save_if_needed(persist_changes: bool, path: Path, tasks: list[dict]) -> None:
+	if persist_changes:
+		save_tasks(path, tasks)
+
 
 def main(argv: list[str], tasks: list[dict] | None = None, storage_path: Path | None = None) -> int:
 	path = storage_path if storage_path is not None else Path("tasks.json")
@@ -27,8 +31,7 @@ def main(argv: list[str], tasks: list[dict] | None = None, storage_path: Path | 
 			return 1
 		description = " ".join(argv[1:])
 		task = add_task(working_tasks, description)
-		if persist_changes:
-			save_tasks(path, working_tasks)
+		_save_if_needed(persist_changes, path, working_tasks)
 		print(f"Added task #{task['id']}: {task['description']}")
 		return 0
 
@@ -48,8 +51,7 @@ def main(argv: list[str], tasks: list[dict] | None = None, storage_path: Path | 
 		except (ValueError, KeyError) as exc:
 			print(f"Error: {exc}", file=sys.stderr)
 			return 1
-		if persist_changes:
-			save_tasks(path, working_tasks)
+		_save_if_needed(persist_changes, path, working_tasks)
 		print(f"Marked #{task_id} as done")
 		return 0
 
@@ -64,8 +66,7 @@ def main(argv: list[str], tasks: list[dict] | None = None, storage_path: Path | 
 		except (ValueError, KeyError) as exc:
 			print(f"Error: {exc}", file=sys.stderr)
 			return 1
-		if persist_changes:
-			save_tasks(path, working_tasks)
+		_save_if_needed(persist_changes, path, working_tasks)
 		print(f"Deleted #{task_id}")
 		return 0
 

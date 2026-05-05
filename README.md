@@ -18,22 +18,22 @@ firstbuild/
 - [x] Create CLAUDE.md with project-specific instructions
 - [x] Write spec.md with at least 3 quality gates
 - [x] Write at least 5 acceptance criteria in Given/When/Then format
-- [ ] Add, commit, and push to GitHub
+- [x] Add, commit, and push to GitHub
 
 ### V1.1 - Test-First Development
 
-- [ ] Write failing tests for first feature before implementation
-- [ ] Implement the feature until all tests pass
-- [ ] Refactor while keeping tests green
-- [ ] Repeat red/green/refactor for at least 2 additional features
-- [ ] Ensure commit history shows tests committed before implementation
-- [ ] Add, commit, and push to GitHub
+- [x] Write failing tests for first feature before implementation
+- [x] Implement the feature until all tests pass
+- [x] Refactor while keeping tests green
+- [x] Repeat red/green/refactor for at least 2 additional features
+- [x] Ensure commit history shows tests committed before implementation
+- [x] Add, commit, and push to GitHub
 
 ### V1.2 - Complexity and Polish
 
-- [ ] Complete one multi-step single-file task using the workflow
-- [ ] Complete one multi-file design task using the workflow
-- [ ] Document workflow differences for each complexity level
+- [x] Complete one multi-step single-file task using the workflow
+- [x] Complete one multi-file design task using the workflow
+- [x] Document workflow differences for each complexity level
 - [ ] Ensure all tests pass in the final submission
 - [ ] Add, commit, and push to GitHub
 
@@ -58,4 +58,19 @@ pip install pytest
 ## Test Command
 
 pytest
+
+## V1.2 Workflow Notes
+
+### Multi-step single-file task
+
+- Scope: Implemented command parsing and command routing in `src/app.py`.
+- Workflow: Added failing CLI tests first (`tests/test_app.py`), then implemented only enough command flow to pass.
+- Validation: Ran full test suite after implementation to ensure no regressions in domain logic.
+
+### Multi-file design task
+
+- Scope: Added JSON persistence layer in `src/store.py` and integrated persistence behavior in `src/app.py`.
+- Workflow: Added failing persistence tests first (`tests/test_store.py`, `tests/test_app_persistence.py`), then implemented storage API and integration.
+- Design decision: Kept `main(..., tasks=...)` for in-memory test mode while adding `storage_path` for file-backed mode.
+- Validation: Ran full test suite after integration and after refactor checkpoints.
 
