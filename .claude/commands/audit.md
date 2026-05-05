@@ -9,8 +9,9 @@ Run a Python-focused project audit for this repository and summarize results in 
 - Project type: CLI task tracker
 - Key modules:
 	- `src/task_manager.py`
-	- `src/app.py`
+	- `src/cli.py`
 	- `src/store.py`
+	- `src/app.py`
 	- `tests/`
 
 ## What To Check
@@ -26,7 +27,8 @@ Run a Python-focused project audit for this repository and summarize results in 
 3. Architecture boundaries
 - Confirm domain logic remains in `src/task_manager.py`.
 - Confirm persistence logic remains in `src/store.py`.
-- Confirm CLI orchestration and error handling remain in `src/app.py`.
+- Confirm CLI orchestration and error handling remain in `src/cli.py`.
+- Confirm `src/app.py` is a thin entrypoint wrapper only (no business logic).
 
 4. CLI behavior quality
 - Verify commands: `add`, `list`, `done`, `delete`.
